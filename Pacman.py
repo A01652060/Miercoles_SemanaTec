@@ -167,15 +167,6 @@ def move():
 
     ontimer(move, 100)
 
-def closeToPacman(ghosts):
-    "Return True if ghosts close to Pacman."
-    for point, course in ghosts:
-        print(point)
-        if abs(pacman.x - point.x) < 80 and abs(pacman.y - point.y) < 80:
-            cercania = "cerca"
-        else:
-            cercania = "lejos"
-
 def change(x, y):
     "Change pacman aim if valid."
     if valid(pacman + vector(x, y)):
