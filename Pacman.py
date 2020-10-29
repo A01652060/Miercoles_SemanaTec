@@ -166,35 +166,7 @@ def move():
             return
 
     ontimer(move, 100)
-'''
-def moveGhosts():
-    "Move ghosts"
-    
-    for point, course in ghosts:
-        if valid(point + course):
-            point.move(course)
-        else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
 
-        up()
-        goto(point.x + 10, point.y + 10)
-        dot(20, 'red')
-
-    update()
-
-    for point, course in ghosts:
-        if abs(pacman - point) < 20:
-            return
-    ontimer(moveGhosts, 80)
-'''
 def change(x, y):
     "Change pacman aim if valid."
     if valid(pacman + vector(x, y)):
@@ -214,5 +186,4 @@ onkey(lambda: change(0, 5), 'Up')
 onkey(lambda: change(0, -5), 'Down')
 world()
 move()
-#moveGhosts()
 done()
