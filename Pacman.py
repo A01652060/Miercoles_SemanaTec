@@ -6,12 +6,13 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
+sp = 10
 pacman = vector(-40, -80)
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(-180, 160), vector(sp, 0)],
+    [vector(-180, -160), vector(0, sp)],
+    [vector(100, 160), vector(0, -sp)],
+    [vector(100, -160), vector(-sp, 0)],
 ]
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -114,10 +115,10 @@ def move():
     for point, course in ghosts:
         if abs(pacman.x - point.x) < 80 and abs(pacman.y - point.y) < 80:
             aimToPacman = vector(0, 0)
-            derecha = vector(5, 0)
-            izquierda = vector(-5, 0)
-            arriba = vector(0, 5)
-            abajo = vector(0, -5)
+            derecha = vector(sp, 0)
+            izquierda = vector(-sp, 0)
+            arriba = vector(0, sp)
+            abajo = vector(0, -sp)
             
             if pacman.x - point.x < 0:
                 aimToPacman = izquierda
@@ -146,10 +147,10 @@ def move():
                 point.move(course)
             else:
                 options = [
-                    vector(5, 0),
-                    vector(-5, 0),
-                    vector(0, 5),
-                    vector(0, -5),
+                    vector(sp, 0),
+                    vector(-sp, 0),
+                    vector(0, sp),
+                    vector(0, -sp),
                 ]
                 plan = choice(options)
                 course.x = plan.x
