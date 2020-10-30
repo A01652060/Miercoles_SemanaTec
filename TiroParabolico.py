@@ -57,9 +57,10 @@ def move():
 
     for target in targets:
         if not inside(target):
-            return
+            targets.pop(0)
+            draw()
 
-    ontimer(move, 30)
+    ontimer(move, 10)
 
 setup(420, 420, 370, 0)
 hideturtle()
